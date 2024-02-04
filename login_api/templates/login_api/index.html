@@ -1,0 +1,23 @@
+{% if list_latest_accounts %}
+    <ul>
+    {% for account in list_latest_accounts %}
+        <!-- <li><a href="/login_api/{{ account.id }}/">{{ account.username }}</a></li> -->
+        <li><a href="{% url 'login_api:account_itinerary' account.id %}">{{ account.username }}</a></li>
+    {% endfor %}
+    {% for user in list_users %}
+        <!-- <li><a href="/login_api/{{ account.id }}/">{{ account.username }}</a></li> -->
+        <li>{{ user }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No accounts are available!</p>
+{% endif %}
+
+{% if user.is_authenticated %}
+    Welcome {{ user.username }}.
+    <a class="float-right btn btn-secondary mx-1 " style="font-size: 12px;" href="login_api/logout/">登出</a>
+    <a class="float-right btn btn-secondary mx-1 " style="font-size: 12px;" href="login_api/update_pwd/">修改密碼</a>
+{% else %}
+    <a class="float-right btn btn-primary mx-1" href="login_api/login/">登入</a>
+    <a class="float-right btn btn-secondary mx-1" href="login_api/register/">註冊</a>
+{% endif %}

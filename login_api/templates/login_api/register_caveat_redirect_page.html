@@ -1,0 +1,12 @@
+<body onload="redirect()">
+    <p>Username, email, and password cannot be empty!</p>
+    <script>
+        function redirect() {
+            setTimeout(redirected_url, 3000);
+        }
+
+        function redirected_url() {
+            document.location.href = "/login_api/register/";
+        }
+    </script>
+</body>

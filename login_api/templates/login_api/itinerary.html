@@ -1,0 +1,7 @@
+<h1>{{ account }}</h1>
+<ul>
+    {% for itinerary in account.itinerary_set.all %}
+        <li>{{ itinerary.it_name }} </li>
+        <!-- {{ itinerary.datetime }} -->
+    {% endfor %}
+</ul>

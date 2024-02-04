@@ -1,0 +1,19 @@
+<body onload=redirect()>
+    <p>{{ message }}</p>
+    <script data-url="{{ url }}">  // https://adamj.eu/tech/2022/10/06/how-to-safely-pass-data-to-javascript-in-a-django-template/
+        // Use data attributes for simple values
+        const data = document.currentScript.dataset;
+        const url = data.url;
+        //const url = "{{ url }}";  // Don't do this! It's not generally safe
+        function redirect() {
+            setTimeout(redirected_url, 3000, url);
+            // setTimeout((url) => {
+            //     document.location.href = url;
+            // }, 3000);
+        }
+
+        function redirected_url(url) {
+            document.location.href = url;
+        }
+    </script>
+</body>

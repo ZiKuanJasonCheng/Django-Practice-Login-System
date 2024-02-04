@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="row">
+        <form class=class="col-6 m-5" id="update_pwd_form" action="" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label>Enter new password</label>
+                <input type="password" class="form-control" name="newpassword" size="25" placeholder="Password">
+                <small id="help" class="form-text text-muted">Enter new password</small>
+            </div>
+            <div class="form-group">
+                <label>Confirm new password</label>
+                <input type="password" class="form-control" name="confirmpassword" size="25" placeholder="Password">
+                <small id="help" class="form-text text-muted">Confirm new password</small>
+            </div>
+            <button type="submit" class="btn btn-primary" value="Submit">Submit</button>
+        </form>
+    </div>
+</div>
+<button onclick="redirected_url()">Go Back</button>
+<script>
+    function redirected_url() {
+        document.location.href = "/";
+    }
+</script>
